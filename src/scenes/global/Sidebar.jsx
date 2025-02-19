@@ -110,7 +110,7 @@ const Sidebar = () => {
                   apiz kato
                 </Typography>
                 <Typography variant="h6" color={colors.greenAccent[500]}>
-                  loser
+                  startup founder
                 </Typography>
               </Box>
             </Box>
