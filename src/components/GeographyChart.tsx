@@ -3,10 +3,16 @@ import { ResponsiveChoropleth } from "@nivo/geo";
 import { geoFeatures } from "../data/mockGeoFeature";
 import { tokens } from "../theme";
 import { mockGeographyData as data } from "../data/mockData";
+import React from "react";
 
-const GeographyChart = ({ isDashboard = false }) => {
+interface GeographyChartProps {
+  isDashboard?: boolean;
+}
+
+const GeographyChart: React.FC<GeographyChartProps> = ({ isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
   return (
     <ResponsiveChoropleth
       data={data}

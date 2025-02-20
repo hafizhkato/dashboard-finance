@@ -16,8 +16,17 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import React from "react";
 
-const Item = ({ title, to, icon, selected, setSelected }) => {
+interface ItemProps {
+  title: string;
+  to: string;
+  icon: React.ReactNode;
+  selected: string;
+  setSelected: (value: string) => void;
+}
+
+const Item: React.FC<ItemProps> = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -35,7 +44,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
-const Sidebar = () => {
+const Sidebar: React.FC = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -44,6 +53,7 @@ const Sidebar = () => {
   return (
     <Box
       sx={{
+        height: "125vh",
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
         },
@@ -126,7 +136,7 @@ const Sidebar = () => {
             />
 
             <Typography
-              variant="h7"
+              variant="h6"
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
@@ -155,7 +165,7 @@ const Sidebar = () => {
             />
 
             <Typography
-              variant="h7"
+              variant="h6"
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
@@ -184,7 +194,7 @@ const Sidebar = () => {
             />
 
             <Typography
-              variant="h7"
+              variant="h6"
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >

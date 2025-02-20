@@ -1,16 +1,18 @@
 import { Box, Typography, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataTeam } from "../../data/mockData";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
+import React from "react";
 
-const Team = () => {
+const Team: React.FC = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const columns = [
+
+  const columns: GridColDef[] = [
     { field: "id", headerName: "ID" },
     {
       field: "name",
@@ -47,14 +49,15 @@ const Team = () => {
             p="5px"
             display="flex"
             justifyContent="center"
-            backgroundColor={
-              access === "admin"
-                ? colors.greenAccent[600]
-                : access === "manager"
-                ? colors.greenAccent[700]
-                : colors.greenAccent[700]
-            }
-            borderRadius="4px"
+            sx={{
+              backgroundColor:
+                access === "admin"
+                  ? colors.greenAccent[600]
+                  : access === "manager"
+                  ? colors.greenAccent[700]
+                  : colors.greenAccent[700],
+              borderRadius: "4px",
+            }}
           >
             {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
             {access === "manager" && <SecurityOutlinedIcon />}

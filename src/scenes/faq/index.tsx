@@ -6,8 +6,9 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tokens } from "../../theme";
+import React from "react";
 
-const FAQ = () => {
+const FAQ: React.FC = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
